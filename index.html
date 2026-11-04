@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Max Wimmer · Portfolio</title>
+<meta name="description" content="Portfolio de Max Wimmer, technicien systèmes et réseaux en alternance, étudiant en cybersécurité.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800;900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+/* Layout : en-tête nuit pleine largeur avec réseau animé, puis sections claires ; chaque section porte sa propre couleur */
+html{scroll-behavior:smooth}
+body{margin:0}
+:root{
+  --bg:#F6F7FB; --surface:#FFFFFF; --ink:#141A2E; --muted:#5B6380; --line:#E1E4EF;
+  --night:#0B1230; --night-ink:#EEF1FF; --night-muted:#A9B2D6;
+  --teal:#0AA39C; --coral:#F2545B; --amber:#F5A524; --violet:#6D4AFF; --sky:#1E8FE1;
+  --todo:#FFF1C9; --todo-ink:#7A5200;
+  --f-display:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --f-body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0E1326; --surface:#161C34; --ink:#E9ECF8; --muted:#9AA3C7; --line:#262E4D;
+  --night:#070C22; --teal:#2CD3C9; --coral:#FF6B72; --amber:#FFBE45; --violet:#9B85FF; --sky:#4CB0FF;
+  --todo:#3A2F12; --todo-ink:#F3D58A; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0E1326; --surface:#161C34; --ink:#E9ECF8; --muted:#9AA3C7; --line:#262E4D;
+  --night:#070C22; --teal:#2CD3C9; --coral:#FF6B72; --amber:#FFBE45; --violet:#9B85FF; --sky:#4CB0FF;
+  --todo:#3A2F12; --todo-ink:#F3D58A; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:400 1rem/1.65 var(--f-body)}
+.in{max-width:920px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:2px solid var(--amber);outline-offset:3px;border-radius:6px}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0;line-height:1.12}
+h2{font-size:clamp(1.7rem,4vw,2.3rem);font-weight:900;letter-spacing:-.02em}
+h3{font-size:1.15rem;font-weight:800}
+p{margin:0;max-width:65ch}
+.todo{background:var(--todo);color:var(--todo-ink);padding:0 .25em;border-radius:3px}
+.tint{--c:var(--teal)}
+.chip{font:600 .76rem var(--f-mono);padding:.25rem .65rem;border-radius:999px;background:color-mix(in srgb,var(--c,var(--teal)) 16%,transparent);color:var(--ink);border:1px solid color-mix(in srgb,var(--c,var(--teal)) 45%,transparent)}
+.c-teal{--c:var(--teal)}.c-coral{--c:var(--coral)}.c-amber{--c:var(--amber)}.c-violet{--c:var(--violet)}.c-sky{--c:var(--sky)}
+
+/* En-tête */
+.hero{position:relative;background:var(--night);color:var(--night-ink);overflow:hidden;isolation:isolate}
+.hero canvas{position:absolute;inset:0;width:100%;height:100%;z-index:-1}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:radial-gradient(40rem 22rem at 85% 10%,color-mix(in srgb,var(--violet) 45%,transparent),transparent 70%),
+             radial-gradient(30rem 20rem at 0% 100%,color-mix(in srgb,var(--teal) 35%,transparent),transparent 70%)}
+.hero .in{padding-block:4.5rem 3.5rem;display:grid;gap:1.6rem}
+.prompt{font:500 .9rem var(--f-mono);color:var(--night-muted)}
+.prompt b{color:#5EF0D8;font-weight:600}
+.hero h1{font-size:clamp(3rem,10vw,5.6rem);font-weight:900;letter-spacing:-.035em;line-height:.95}
+.grad{background:linear-gradient(90deg,#5EF0D8,#FFC24B 50%,#FF6B8B);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .role{font-size:clamp(1.05rem,2.4vw,1.3rem);color:var(--night-muted);max-width:52ch}
+.hero .role strong{color:var(--night-ink);font-weight:600}
+.badges{display:flex;flex-wrap:wrap;gap:.6rem}
+.badge{display:flex;align-items:center;gap:.5rem;padding:.45rem .85rem;border-radius:10px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);font-size:.92rem;backdrop-filter:blur(4px)}
+.badge i{width:.6rem;height:.6rem;border-radius:50%;background:var(--c);flex:none}
+.hero .todo{background:#FFE7A3;color:#5C3D00}
+.cta{display:flex;flex-wrap:wrap;gap:.75rem;padding-top:.4rem}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1.2rem;border-radius:10px;font-weight:600;text-decoration:none}
+.btn.primary{background:linear-gradient(90deg,#FF6B8B,#FFB547);color:#1B0F14}
+.btn.ghost{border:1px solid rgba(255,255,255,.35);color:var(--night-ink)}
+@media (prefers-reduced-motion:no-preference){.btn{transition:transform .15s,box-shadow .15s}.btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px -8px rgba(255,107,139,.6)}}
+
+main{display:grid;gap:5rem;padding-block:4.5rem 3rem}
+section{display:grid;gap:1.75rem}
+.sec-head{display:grid;gap:.5rem}
+.kicker{display:inline-flex;align-items:center;gap:.5rem;font:600 .78rem var(--f-mono);text-transform:uppercase;letter-spacing:.1em;color:var(--c)}
+.kicker::before{content:"";width:1.6rem;height:3px;border-radius:2px;background:var(--c)}
+
+/* Projet phare */
+.feature{border-radius:18px;padding:2rem;display:grid;gap:1.75rem;background:var(--surface);border:1px solid var(--line);
+  box-shadow:0 20px 50px -30px color-mix(in srgb,var(--coral) 60%,transparent)}
+.meta{display:flex;flex-wrap:wrap;gap:.5rem}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.two>div{display:grid;gap:.5rem;align-content:start;min-width:0}
+.two .box{padding:1.2rem;border-radius:12px;background:color-mix(in srgb,var(--c) 9%,transparent)}
+.flow{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:.75rem;counter-reset:s}
+.flow li{counter-increment:s;display:grid;gap:.6rem;align-content:start;padding:1rem;border-radius:12px;background:color-mix(in srgb,var(--c) 11%,transparent);border-top:4px solid var(--c);min-width:0}
+.flow li::before{content:"0" counter(s);font:600 .8rem var(--f-mono);color:var(--c)}
+.flow .who{font:600 .72rem var(--f-mono);text-transform:uppercase;letter-spacing:.05em}
+.flow p{font-size:.9rem;color:var(--muted)}
+.note{font-size:.88rem;color:var(--muted)}
+
+/* Projets BTS */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.1rem}
+.card{border-radius:16px;padding:1.4rem;display:grid;gap:.75rem;align-content:start;background:var(--surface);border:1px solid var(--line)}
+@media (prefers-reduced-motion:no-preference){.card{transition:transform .2s,box-shadow .2s}.card:hover{transform:translateY(-4px);box-shadow:0 16px 36px -18px var(--c)}}
+.tile{width:3.4rem;height:3.4rem;border-radius:12px;display:grid;place-items:center;font:600 .85rem var(--f-mono);color:#fff;background:linear-gradient(135deg,var(--c),color-mix(in srgb,var(--c) 55%,#000))}
+.card p{font-size:.93rem;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:.35rem}
+.doc{justify-self:start;margin-top:.3rem;padding:.5rem .9rem;border-radius:8px;font-weight:600;font-size:.9rem;text-decoration:none;color:#fff;background:linear-gradient(135deg,var(--c),color-mix(in srgb,var(--c) 60%,#000))}
+.doc:hover{filter:brightness(1.1)}
+
+/* Parcours */
+.timeline{display:grid;gap:1rem}
+.tl{display:grid;grid-template-columns:8.5rem 1fr;gap:1.25rem;padding:1.2rem 1.4rem;border-radius:14px;background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--c)}
+.tl .when{font:600 .85rem var(--f-mono);color:var(--c);font-variant-numeric:tabular-nums;padding-top:.15rem}
+.tl>div:last-child{display:grid;gap:.25rem;min-width:0}
+.tl .where{font:500 .8rem var(--f-mono);color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+.tl ul{margin:.3rem 0 0;padding-left:1.1rem;color:var(--muted);font-size:.93rem}
+.legend{display:flex;gap:1.2rem;flex-wrap:wrap;font-size:.85rem;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:.4rem}
+.legend i{width:.8rem;height:.8rem;border-radius:3px;background:var(--c)}
+
+/* Compétences */
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem}
+.skill{border-radius:16px;padding:1.3rem;display:grid;gap:.8rem;align-content:start;background:color-mix(in srgb,var(--c) 12%,var(--surface));border:1px solid color-mix(in srgb,var(--c) 35%,transparent)}
+.skill h3{display:flex;align-items:center;gap:.55rem}
+.skill h3 i{width:.75rem;height:.75rem;border-radius:50%;background:var(--c)}
+.skill ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.4rem}
+.skill li{font-size:.86rem;padding:.2rem .6rem;border-radius:999px;background:var(--surface);border:1px solid color-mix(in srgb,var(--c) 30%,transparent)}
+
+/* Contact */
+.contact{border-radius:22px;padding:2.4rem 2rem;background:linear-gradient(120deg,#6D4AFF,#F2545B 55%,#F5A524);color:#fff;display:grid;gap:1.5rem}
+.contact .kicker{color:#fff}.contact .kicker::before{background:#fff}
+.contact dl{display:grid;grid-template-columns:7rem 1fr;gap:.6rem 1rem;margin:0}
+.contact dt{opacity:.85;font:500 .85rem var(--f-mono);text-transform:uppercase;letter-spacing:.05em;padding-top:.15rem}
+.contact dd{margin:0;min-width:0;overflow-wrap:anywhere;font-weight:500}
+.contact .todo{background:rgba(255,255,255,.9);color:#5C3D00}
+footer{font:400 .8rem var(--f-mono);color:var(--muted);padding-block:0 3rem}
+
+@media (max-width:780px){.flow{grid-template-columns:1fr 1fr}}
+@media (max-width:640px){
+  .two{grid-template-columns:1fr}
+  .flow{grid-template-columns:1fr}
+  .tl{grid-template-columns:1fr;gap:.3rem}
+  .feature{padding:1.25rem}
+  .contact{padding:1.6rem 1.25rem}
+  .contact dl{grid-template-columns:1fr;gap:.1rem}
+  .contact dd{margin-bottom:.7rem}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <canvas id="net" aria-hidden="true"></canvas>
+  <div class="in">
+    <div class="prompt"><b>max@portfolio</b>:~$ whoami</div>
+    <h1>Max<br><span class="grad">Wimmer</span></h1>
+    <p class="role"><strong>Technicien systèmes et réseaux</strong> en alternance, étudiant en <strong>cybersécurité</strong>. J'automatise ce qui peut l'être et je sécurise le reste.</p>
+    <div class="badges">
+      <span class="badge c-teal"><i></i>Alternant, service informatique</span>
+      <span class="badge c-violet"><i></i>Licence cybersécurité, Cybersup</span>
+      <span class="badge c-amber"><i></i>BTS SIO option SISR</span>
+      <span class="badge c-coral"><i></i>Oise · Île-de-France</span>
+    </div>
+    <div class="cta">
+      <a class="btn primary" href="#projets">Voir mes projets</a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/max-wimmer-a305b8272" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn ghost" href="#contact">Me contacter</a>
+    </div>
+  </div>
+</header>
+
+<main class="in">
+
+  <section id="projets" class="c-coral">
+    <div class="sec-head">
+      <span class="kicker">Projet en entreprise</span>
+      <h2>Automatiser le départ d'un salarié</h2>
+    </div>
+    <article class="feature">
+      <div class="meta">
+        <span class="chip c-violet">Power Apps</span><span class="chip c-sky">Power Automate</span><span class="chip c-teal">Microsoft 365</span><span class="chip c-coral">Entra ID</span>
+      </div>
+      <div class="two">
+        <div class="box c-coral">
+          <h3>Le problème</h3>
+          <p>Quand un salarié quittait l'établissement, le service informatique n'était pas toujours prévenu de son départ. Résultat : des comptes restaient actifs après le départ, et un compte oublié, c'est une porte ouverte.</p>
+        </div>
+        <div class="box c-teal">
+          <h3>Ce que j'ai construit</h3>
+          <p>Une application Power Apps où le responsable déclare le départ, reliée à un flux Power Automate qui déclenche chaque étape à la bonne date et garde une trace de ce qui a été fait.</p>
+        </div>
+      </div>
+      <div style="display:grid;gap:1rem">
+        <h3>Le parcours d'un départ</h3>
+        <ol class="flow">
+          <li class="c-violet"><span class="who">Responsable · Power Apps</span><p>Déclare le départ dans l'application : nom et date de fin.</p></li>
+          <li class="c-sky"><span class="who">Power Automate</span><p>Enregistre la demande et crée automatiquement un ticket pour le service informatique.</p></li>
+          <li class="c-coral"><span class="who">Le jour J</span><p>Le départ est validé et le compte Entra ID est désactivé, sans intervention manuelle du service informatique.</p></li>
+          <li class="c-teal"><span class="who">Traçabilité</span><p>Chaque étape est horodatée : qui, quoi, quand.</p></li>
+        </ol>
+      </div>
+      <div class="two">
+        <div class="box c-amber">
+          <h3>Résultat</h3>
+          <p>Chaque départ remonte au service informatique grâce au ticket : plus aucun oubli. Et il n'est plus nécessaire de passer par le service informatique pour désactiver un compte.</p>
+        </div>
+        <div class="box c-violet">
+          <h3>Ce que j'en retiens</h3>
+          <p>Le départ d'un salarié est un sujet de sécurité autant que d'organisation : supprimer les accès à temps limite le risque d'accès non autorisé. Ma principale difficulté : c'était ma première fois avec Power Apps et Power Automate. J'ai appris les deux outils en construisant ce projet.</p>
+        </div>
+      </div>
+      <p class="note">Captures et noms anonymisés : aucune donnée de l'établissement n'apparaît sur ce site.</p>
+    </article>
+  </section>
+
+  <section class="c-violet">
+    <div class="sec-head">
+      <span class="kicker">BTS · 2024–2026</span>
+      <h2>Réalisations pendant le BTS</h2>
+    </div>
+    <div class="grid">
+      <article class="card c-violet">
+        <div class="tile">AD</div>
+        <h3>Annuaire Active Directory et GPO</h3>
+        <p>Création d'une VM Windows Server 2022 sous Proxmox, installation des rôles AD DS, DNS et DHCP, création de la forêt M2I.local, des unités d'organisation et des utilisateurs, puis jonction d'un poste client au domaine.</p>
+        <div class="chips"><span class="chip c-violet">Windows Server 2022</span><span class="chip c-violet">AD DS</span><span class="chip c-violet">DNS</span><span class="chip c-violet">DHCP</span><span class="chip c-violet">Proxmox</span></div>
+        <a class="doc" href="projet-active-directory.pdf" target="_blank" rel="noopener">Voir la documentation (PDF) →</a>
+      </article>
+      <article class="card c-coral">
+        <div class="tile">GLPI</div>
+        <h3>Gestion de parc et ticketing</h3>
+        <p>Déploiement de GLPI 11 sur un serveur Debian 13 virtualisé sous Proxmox (Apache, PHP 8.4, MariaDB) pour l'inventaire et le suivi des incidents d'un parc de 600 postes.</p>
+        <div class="chips"><span class="chip c-coral">GLPI 11</span><span class="chip c-coral">Debian 13</span><span class="chip c-coral">MariaDB</span><span class="chip c-coral">Apache</span><span class="chip c-coral">600 postes</span></div>
+        <a class="doc" href="projet-glpi.pdf" target="_blank" rel="noopener">Voir la documentation (PDF) →</a>
+      </article>
+    </div>
+  </section>
+
+  <section class="c-teal">
+    <div class="sec-head">
+      <span class="kicker">Parcours</span>
+      <h2>Expériences et formation</h2>
+      <div class="legend"><span class="c-teal"><i></i>Entreprise</span><span class="c-violet"><i></i>Formation</span><span class="c-amber"><i></i>Premier emploi</span></div>
+    </div>
+    <div class="timeline">
+      <div class="tl c-teal"><div class="when">2026 – auj.</div><div>
+        <h3>Technicien systèmes et réseaux, alternance</h3>
+        <span class="where">Établissement de santé · Beauvais</span>
+        <ul><li>Support utilisateurs et administration du parc</li><li>Gestion des comptes et des accès</li><li>Automatisation des départs avec Power Platform</li></ul>
+      </div></div>
+      <div class="tl c-violet"><div class="when">2026 – auj.</div><div>
+        <h3>Licence cybersécurité</h3>
+        <span class="where">Cybersup</span>
+      </div></div>
+      <div class="tl c-teal"><div class="when">2024 – 2026</div><div>
+        <h3>Technicien maintenance, alternance</h3>
+        <span class="where">Computacenter · Gonesse</span>
+        <ul><li>Diagnostic et réparation de postes et de matériel</li><li>Préparation et déploiement de postes</li><li>Suivi des interventions par tickets</li></ul>
+      </div></div>
+      <div class="tl c-violet"><div class="when">2024 – 2026</div><div>
+        <h3>BTS SIO option SISR</h3>
+        <span class="where">IPSSI</span>
+      </div></div>
+      <div class="tl c-amber"><div class="when">2023 – 2024</div><div>
+        <h3>Agent polyvalent</h3>
+        <span class="where">Burger King · Argenteuil</span>
+        <ul><li>Travail en équipe sous pression, respect strict des procédures</li></ul>
+      </div></div>
+    </div>
+  </section>
+
+  <section class="c-amber">
+    <div class="sec-head">
+      <span class="kicker">Compétences</span>
+      <h2>Ce que je sais faire</h2>
+    </div>
+    <div class="skills">
+      <div class="skill c-sky"><h3><i></i>Systèmes</h3><ul><li>Windows 10/11</li><li>Windows Server</li><li>Active Directory</li><li>Entra ID</li><li>Linux</li></ul></div>
+      <div class="skill c-teal"><h3><i></i>Réseaux</h3><ul><li>TCP/IP</li><li>VLAN</li><li>DHCP / DNS</li><li>Wi-Fi</li></ul></div>
+      <div class="skill c-violet"><h3><i></i>Automatisation</h3><ul><li>Power Apps</li><li>Power Automate</li><li>Microsoft 365</li><li>PowerShell</li></ul></div>
+      <div class="skill c-coral"><h3><i></i>Cybersécurité</h3><ul><li>Gestion des accès</li><li>Sensibilisation</li><li>Veille ANSSI</li><li>Microsoft 365</li></ul></div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="sec-head">
+      <span class="kicker">Contact</span>
+      <h2>Échangeons</h2>
+    </div>
+    <dl>
+      <dt>E-mail</dt><dd><a href="mailto:wimmermax81@gmail.com">wimmermax81@gmail.com</a></dd>
+      <dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/max-wimmer-a305b8272" target="_blank" rel="noopener">linkedin.com/in/max-wimmer-a305b8272</a></dd>
+    </dl>
+  </section>
+</main>
+<footer class="in">© 2026 Max Wimmer · site statique hébergé sur GitHub Pages</footer>
+
+<script>
+(function(){
+  var cv=document.getElementById('net'); if(!cv||!cv.getContext) return;
+  var ctx=cv.getContext('2d'), cols=['#5EF0D8','#FFC24B','#FF6B8B','#9B85FF','#4CB0FF'], pts=[], W=0, H=0, dpr=Math.min(window.devicePixelRatio||1,2);
+  var still=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function size(){var r=cv.getBoundingClientRect();W=r.width;H=r.height;cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);
+    var n=Math.round(Math.min(70,W*H/14000));pts=[];for(var i=0;i<n;i++)pts.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35,c:cols[i%cols.length],r:1.5+Math.random()*2});}
+  function draw(){ctx.clearRect(0,0,W,H);
+    for(var i=0;i<pts.length;i++){var a=pts[i];
+      if(!still){a.x+=a.vx;a.y+=a.vy;if(a.x<0||a.x>W)a.vx*=-1;if(a.y<0||a.y>H)a.vy*=-1;}
+      for(var j=i+1;j<pts.length;j++){var b=pts[j],dx=a.x-b.x,dy=a.y-b.y,d=Math.sqrt(dx*dx+dy*dy);
+        if(d<130){ctx.strokeStyle='rgba(169,178,214,'+(0.22*(1-d/130))+')';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();}}
+      ctx.fillStyle=a.c;ctx.globalAlpha=.85;ctx.beginPath();ctx.arc(a.x,a.y,a.r,0,Math.PI*2);ctx.fill();ctx.globalAlpha=1;}
+    if(!still) requestAnimationFrame(draw);}
+  size();draw();window.addEventListener('resize',function(){size();if(still)draw();});
+})();
+</script>
+</body>
+</html>
