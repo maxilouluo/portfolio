@@ -87,6 +87,11 @@ section{display:grid;gap:1.75rem}
 .flow p{font-size:.9rem;color:var(--muted)}
 .note{font-size:.88rem;color:var(--muted)}
 
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:.75rem}
+.stats div{padding:1rem;border-radius:12px;background:color-mix(in srgb,var(--c) 12%,transparent);display:grid;gap:.15rem;min-width:0}
+.stats b{font:900 1.6rem/1.1 var(--f-display);color:var(--c)}
+.stats span{font-size:.85rem;color:var(--muted)}
+@media (max-width:640px){.stats{grid-template-columns:1fr 1fr}}
 /* Projets BTS */
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.1rem}
 .card{border-radius:16px;padding:1.4rem;display:grid;gap:.75rem;align-content:start;background:var(--surface);border:1px solid var(--line)}
@@ -168,38 +173,45 @@ footer{font:400 .8rem var(--f-mono);color:var(--muted);padding-block:0 3rem}
     </div>
     <article class="feature">
       <div class="meta">
-        <span class="chip c-violet">Power Apps</span><span class="chip c-sky">Power Automate</span><span class="chip c-teal">Microsoft 365</span><span class="chip c-coral">Entra ID</span>
+        <span class="chip c-violet">Power Apps</span><span class="chip c-violet">Power Fx</span><span class="chip c-sky">Power Automate cloud</span><span class="chip c-sky">Power Automate Desktop</span><span class="chip c-amber">PowerShell</span><span class="chip c-teal">Active Directory</span><span class="chip c-coral">Entra Connect</span><span class="chip c-teal">Microsoft 365</span>
       </div>
       <div class="two">
         <div class="box c-coral">
           <h3>Le problème</h3>
-          <p>Quand un salarié quittait l'établissement, le service informatique n'était pas toujours prévenu de son départ. Résultat : des comptes restaient actifs après le départ, et un compte oublié, c'est une porte ouverte.</p>
+          <p>Chaque départ passait par une demande manuelle au service informatique, qui n'était pas toujours prévenu. Résultat : des comptes restaient actifs après le départ, et un compte oublié, c'est une porte ouverte.</p>
         </div>
         <div class="box c-teal">
           <h3>Ce que j'ai construit</h3>
-          <p>Une application Power Apps où le responsable déclare le départ, reliée à un flux Power Automate qui déclenche chaque étape à la bonne date et garde une trace de ce qui a été fait.</p>
+          <p>Une application qui permet aux responsables de site de désactiver eux-mêmes, en moins d'une minute, le compte d'un collaborateur qui part. Chaque action est contrôlée côté serveur, journalisée et signalée au service informatique.</p>
         </div>
       </div>
       <div style="display:grid;gap:1rem">
         <h3>Le parcours d'un départ</h3>
         <ol class="flow">
-          <li class="c-violet"><span class="who">Responsable · Power Apps</span><p>Déclare le départ dans l'application : nom et date de fin.</p></li>
-          <li class="c-sky"><span class="who">Power Automate</span><p>Enregistre la demande et crée automatiquement un ticket pour le service informatique.</p></li>
-          <li class="c-coral"><span class="who">Le jour J</span><p>Le départ est validé et le compte Entra ID est désactivé, sans intervention manuelle du service informatique.</p></li>
-          <li class="c-teal"><span class="who">Traçabilité</span><p>Chaque étape est horodatée : qui, quoi, quand.</p></li>
+          <li class="c-violet"><span class="who">Power Apps</span><p>Le responsable choisit son site, le collaborateur, le motif et la date, vérifie la fiche et confirme.</p></li>
+          <li class="c-sky"><span class="who">Power Automate</span><p>Le flux cloud transmet la demande à un flux Desktop (RPA non assisté) sur un serveur d'administration.</p></li>
+          <li class="c-amber"><span class="who">PowerShell</span><p>Le script revérifie les droits, désactive le compte dans l'AD, et Entra Connect synchronise vers Microsoft 365.</p></li>
+          <li class="c-teal"><span class="who">Ticket et journal</span><p>Un ticket informe le service informatique et l'action est journalisée : demandeur, compte, site, motif, résultat.</p></li>
         </ol>
+      </div>
+      <div class="stats">
+        <div class="c-coral"><b>&lt; 1 min</b><span>pour traiter un départ</span></div>
+        <div class="c-violet"><b>1 licence</b><span>pour 20 à 30 utilisateurs</span></div>
+        <div class="c-teal"><b>100 %</b><span>des actions journalisées</span></div>
+        <div class="c-amber"><b>0</b><span>passage obligé par le service info</span></div>
       </div>
       <div class="two">
         <div class="box c-amber">
-          <h3>Résultat</h3>
-          <p>Chaque départ remonte au service informatique grâce au ticket : plus aucun oubli. Et il n'est plus nécessaire de passer par le service informatique pour désactiver un compte.</p>
+          <h3>Sécurité</h3>
+          <p>Un groupe AD par site décide qui peut agir sur quel site. Les droits sont vérifiés dans l'application puis revérifiés par le script. Compte de service non administrateur, limité à une seule unité d'organisation. Les comptes d'administration sont toujours refusés.</p>
         </div>
         <div class="box c-violet">
           <h3>Ce que j'en retiens</h3>
-          <p>Le départ d'un salarié est un sujet de sécurité autant que d'organisation : supprimer les accès à temps limite le risque d'accès non autorisé. Ma principale difficulté : c'était ma première fois avec Power Apps et Power Automate. J'ai appris les deux outils en construisant ce projet.</p>
+          <p>C'était ma première fois avec Power Apps et Power Automate. J'ai dû résoudre des vrais problèmes : chargement lent de la liste, coût des licences (passé de deux à une seule), erreur 502 en mode non assisté, flux affiché réussi alors que le script échouait.</p>
         </div>
       </div>
-      <p class="note">Captures et noms anonymisés : aucune donnée de l'établissement n'apparaît sur ce site.</p>
+      <a class="doc c-coral" href="projet-offboarding.pdf" target="_blank" rel="noopener">Voir la documentation du projet (PDF) →</a>
+      <p class="note">Les noms de l'organisation, des serveurs, des comptes et des personnes ont été volontairement omis.</p>
     </article>
   </section>
 
