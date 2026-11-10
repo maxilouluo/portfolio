@@ -79,7 +79,8 @@ section{display:grid;gap:1.75rem}
 .meta{display:flex;flex-wrap:wrap;gap:.5rem}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
 .two>div{display:grid;gap:.5rem;align-content:start;min-width:0}
-.two .box{padding:1.2rem;border-radius:12px;background:color-mix(in srgb,var(--c) 9%,transparent)}
+.onb{display:grid;gap:.5rem}.onb h3{display:flex;flex-wrap:wrap;align-items:center;gap:.6rem}
+.two .box,.onb{padding:1.2rem;border-radius:12px;background:color-mix(in srgb,var(--c) 9%,transparent)}
 .flow{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:.75rem;counter-reset:s}
 .flow li{counter-increment:s;display:grid;gap:.6rem;align-content:start;padding:1rem;border-radius:12px;background:color-mix(in srgb,var(--c) 11%,transparent);border-top:4px solid var(--c);min-width:0}
 .flow li::before{content:"0" counter(s);font:600 .8rem var(--f-mono);color:var(--c)}
@@ -169,7 +170,7 @@ footer{font:400 .8rem var(--f-mono);color:var(--muted);padding-block:0 3rem}
   <section id="projets" class="c-coral">
     <div class="sec-head">
       <span class="kicker">Projet en entreprise</span>
-      <h2>Automatiser le départ d'un salarié</h2>
+      <h2>Automatiser les départs et arrivées des salariés</h2>
     </div>
     <article class="feature">
       <div class="meta">
@@ -210,7 +211,11 @@ footer{font:400 .8rem var(--f-mono);color:var(--muted);padding-block:0 3rem}
           <p>C'était ma première fois avec Power Apps et Power Automate. J'ai dû résoudre des vrais problèmes : chargement lent de la liste, coût des licences (passé de deux à une seule), erreur 502 en mode non assisté, flux affiché réussi alors que le script échouait.</p>
         </div>
       </div>
-      <a class="doc c-coral" href="projet-offboarding.pdf" target="_blank" rel="noopener">Voir la documentation du projet (PDF) →</a>
+      <div class="box c-sky onb">
+        <h3>Nouveau : le module d'arrivée <span class="chip c-amber">En cours</span></h3>
+        <p>Même principe pour l'arrivée d'un salarié. Un formulaire unique : type de contrat (CDI ou CDD), date de début, nom, prénom, poste et site. Un récapitulatif se remplit en direct avec l'identifiant et l'adresse mail proposés, et on coche les applications métier dont la personne aura besoin. Le bouton « Créer le compte » sera relié à la même chaîne Power Automate et PowerShell que les départs.</p>
+      </div>
+      <a class="doc c-coral" href="projet-offboarding.pdf" target="_blank" rel="noopener">Voir la documentation : départs et arrivées (PDF) →</a>
       <p class="note">Les noms de l'organisation, des serveurs, des comptes et des personnes ont été volontairement omis.</p>
     </article>
   </section>
