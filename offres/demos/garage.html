@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Démo Garage Duval Autos</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Archivo+Narrow:wght@600;700&display=swap" rel="stylesheet">
+<style>
+/* Plan : garage indépendant, ambiance atelier, fond gris acier clair, accent jaune signalisation sur encre presque noire. Forfaits en tableau de prix TTC, bandeau de confiance, bouton d'appel visible. */
+:root{
+  --bg:#EEF0F1; --surface:#FFFFFF; --ink:#16191C; --muted:#5B636A; --line:#D3D8DC; --accent:#F2B705; --dark:#1F2428;
+  --display:"Archivo Narrow", "Arial Narrow", sans-serif; --body:"Archivo", "Segoe UI", system-ui, sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55}
+h1,h2,h3{font-family:var(--display);margin:0;line-height:1.05;text-transform:uppercase;letter-spacing:.01em;text-wrap:balance}
+p{margin:0}
+a{color:inherit}
+a:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.demo{background:var(--accent);color:var(--ink);font-size:14px;text-align:center;padding:8px 16px;font-weight:500}
+.demo a{font-weight:800}
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px}
+@media (max-width:420px){.wrap{padding:0 16px}}
+.top{background:var(--dark);color:#fff}
+.top .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 24px;flex-wrap:wrap}
+.logo{font-family:var(--display);font-size:26px;font-weight:700;text-transform:uppercase}
+.logo span{color:var(--accent)}
+.tel{background:var(--accent);color:var(--ink);text-decoration:none;font-weight:800;padding:10px 18px;border-radius:6px}
+.hero{background:var(--dark);color:#fff;padding:40px 0 64px}
+.hero h1{font-size:clamp(38px,6vw,70px);font-weight:700;max-width:14em}
+.hero p{color:#B9C1C7;font-size:19px;margin-top:16px;max-width:36em}
+.trust{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.trust span{border:1px solid #3A4248;border-radius:6px;padding:7px 12px;font-weight:700;font-size:15px}
+section{padding:56px 0}
+h2{font-size:clamp(28px,3.6vw,40px);margin-bottom:24px}
+.table{background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:520px}
+th,td{text-align:left;padding:14px 18px;border-bottom:1px solid var(--line)}
+th{font-family:var(--display);text-transform:uppercase;font-size:15px;color:var(--muted);letter-spacing:.04em}
+td:last-child,th:last-child{text-align:right;font-variant-numeric:tabular-nums;font-weight:800;white-space:nowrap}
+tr:last-child td{border-bottom:0}
+td small{display:block;color:var(--muted);font-weight:400}
+.fine{color:var(--muted);font-size:15px;margin-top:14px}
+.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media (max-width:820px){.cols{grid-template-columns:1fr}}
+.box{background:var(--surface);border:1px solid var(--line);border-left:6px solid var(--accent);border-radius:8px;padding:20px}
+.box h3{font-size:22px;margin-bottom:8px}
+.box p{color:var(--muted)}
+footer{background:var(--dark);color:#9AA3A9;font-size:14px;padding:26px 0}
+</style>
+</head>
+<body>
+<div class="demo">Site de démonstration réalisé par Max Wimmer. Ce garage est fictif. <a href="../">Retour aux tarifs</a></div>
+<div class="top"><div class="wrap"><span class="logo">Duval <span>Autos</span></span><a class="tel" href="tel:+33300000000">Appeler : 03 00 00 00 00</a></div></div>
+<main>
+  <div class="hero">
+    <div class="wrap">
+      <h1>Entretien et réparation toutes marques, à Creil.</h1>
+      <p>Garage indépendant depuis 1998. Devis écrit avant chaque intervention, pièces d'origine ou équivalentes, et votre voiture rendue le jour prévu.</p>
+      <div class="trust"><span>Devis gratuit</span><span>Toutes marques</span><span>Garantie constructeur préservée</span><span>Véhicule de prêt</span></div>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <h2>Nos forfaits</h2>
+      <div class="table">
+        <table>
+          <thead><tr><th>Prestation</th><th>Durée</th><th>Prix TTC</th></tr></thead>
+          <tbody>
+            <tr><td>Vidange et filtre à huile<small>Huile adaptée à votre moteur, contrôle des niveaux</small></td><td>45 min</td><td>dès 89 €</td></tr>
+            <tr><td>Révision complète<small>Selon le carnet constructeur, garantie préservée</small></td><td>2 h</td><td>dès 169 €</td></tr>
+            <tr><td>Plaquettes de frein avant<small>Pièces et main-d'œuvre</small></td><td>1 h</td><td>dès 119 €</td></tr>
+            <tr><td>Pré-contrôle technique<small>Pour éviter la contre-visite</small></td><td>30 min</td><td>35 €</td></tr>
+            <tr><td>Recharge climatisation<small>Contrôle d'étanchéité inclus</small></td><td>1 h</td><td>79 €</td></tr>
+            <tr><td>Diagnostic électronique<small>Lecture des codes défaut, voyant moteur</small></td><td>30 min</td><td>49 €</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="fine">Prix indicatifs pour une citadine. Le prix exact figure sur votre devis, envoyé avant toute intervention.</p>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap cols">
+      <div class="box"><h3>Horaires</h3><p>Lundi au vendredi<br>8 h – 12 h et 14 h – 18 h<br>Samedi : sur rendez-vous</p></div>
+      <div class="box"><h3>Adresse</h3><p>45 avenue de l'Industrie<br>60100 Creil<br>Parking client sur place</p></div>
+      <div class="box"><h3>Rendez-vous</h3><p>Appelez le <a href="tel:+33300000000">03 00 00 00 00</a> (numéro fictif). En cas de panne, on vous rappelle dans l'heure.</p></div>
+    </div>
+  </section>
+</main>
+<footer><div class="wrap">Duval Autos · Garage fictif · Démonstration d'un site Essentiel (une page) à 349 €</div></footer>
+</body>
+</html>

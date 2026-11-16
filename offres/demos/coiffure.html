@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Démo salon Atelier Mèche</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Karla:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+/* Plan : salon de coiffure élégant, fond rose poudré très pâle, encre aubergine, grille de prestations avec durées et prix, équipe en trois portraits stylisés. */
+:root{
+  --bg:#FAF4F3; --surface:#FFFFFF; --ink:#2A1726; --muted:#76606F; --line:#EBDCDD; --accent:#8E3B6E; --soft:#F2E4E6;
+  --display:"DM Serif Display", Georgia, serif; --body:"Karla", "Segoe UI", system-ui, sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:18px;line-height:1.55}
+h1,h2,h3{font-family:var(--display);font-weight:400;margin:0;line-height:1.08;text-wrap:balance}
+p{margin:0}
+a{color:inherit}
+a:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.demo{background:var(--ink);color:#F4E8EC;font-size:14px;text-align:center;padding:8px 16px}
+.demo a{color:#F4E8EC;font-weight:700}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+@media (max-width:420px){.wrap{padding:0 16px}}
+header .wrap{display:flex;justify-content:space-between;align-items:center;padding:20px 24px;gap:16px;flex-wrap:wrap}
+.logo{font-family:var(--display);font-size:26px}
+.rdv{background:var(--accent);color:#fff;text-decoration:none;font-weight:700;padding:11px 20px;border-radius:8px}
+.hero{padding:56px 0;max-width:780px}
+.hero h1{font-size:clamp(40px,6vw,72px)}
+.hero p{font-size:20px;color:var(--muted);margin-top:18px;max-width:32em}
+.hero .rdv{display:inline-block;margin-top:26px}
+section{padding:56px 0;border-top:1px solid var(--line)}
+h2{font-size:clamp(30px,3.6vw,42px);margin-bottom:24px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px}
+@media (max-width:760px){.grid{grid-template-columns:1fr}}
+.cat h3{font-size:24px;margin-bottom:8px;color:var(--accent)}
+.row{display:grid;grid-template-columns:1fr auto auto;gap:16px;padding:11px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.row small{color:var(--muted);font-variant-numeric:tabular-nums}
+.row b{font-variant-numeric:tabular-nums;min-width:4.5em;text-align:right}
+.team{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+@media (max-width:760px){.team{grid-template-columns:1fr}}
+.person{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px;display:grid;gap:8px}
+.avatar{width:64px;height:64px;border-radius:50%;display:grid;place-items:center;font-family:var(--display);font-size:26px;color:#fff}
+.person p{color:var(--muted);font-size:16px}
+.practical{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+@media (max-width:760px){.practical{grid-template-columns:1fr}}
+.box{background:var(--soft);border-radius:14px;padding:22px}
+.box h3{font-size:24px;margin-bottom:10px}
+.box p{color:var(--muted)}
+footer{padding:28px 0;color:var(--muted);font-size:14px;border-top:1px solid var(--line)}
+</style>
+</head>
+<body>
+<div class="demo">Site de démonstration réalisé par Max Wimmer. Ce salon est fictif. <a href="../">Retour aux tarifs</a></div>
+<header><div class="wrap"><span class="logo">Atelier Mèche</span><a class="rdv" href="#infos">Prendre rendez-vous</a></div></header>
+<main>
+  <div class="wrap hero">
+    <h1>Coupe, couleur et balayage, sur rendez-vous.</h1>
+    <p>Un salon de trois coiffeuses au cœur de Beauvais. On prend le temps de vous écouter avant de toucher aux ciseaux, et on travaille avec des colorations sans ammoniaque.</p>
+    <a class="rdv" href="#infos">Voir les créneaux</a>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <h2>Prestations et tarifs</h2>
+      <div class="grid">
+        <div class="cat">
+          <h3>Femme</h3>
+          <div class="row"><span>Shampoing, coupe, brushing</span><small>45 min</small><b>42 €</b></div>
+          <div class="row"><span>Brushing seul</span><small>30 min</small><b>25 €</b></div>
+          <div class="row"><span>Couleur racines</span><small>1 h</small><b>48 €</b></div>
+          <div class="row"><span>Balayage</span><small>2 h 30</small><b>dès 95 €</b></div>
+        </div>
+        <div class="cat">
+          <h3>Homme et enfant</h3>
+          <div class="row"><span>Coupe homme</span><small>30 min</small><b>22 €</b></div>
+          <div class="row"><span>Coupe et barbe</span><small>45 min</small><b>32 €</b></div>
+          <div class="row"><span>Enfant (moins de 12 ans)</span><small>20 min</small><b>15 €</b></div>
+          <div class="row"><span>Soin profond</span><small>15 min</small><b>12 €</b></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>L'équipe</h2>
+      <div class="team">
+        <div class="person"><div class="avatar" style="background:#8E3B6E" aria-hidden="true">C</div><h3>Claire</h3><p>Fondatrice, spécialiste couleur et balayage.</p></div>
+        <div class="person"><div class="avatar" style="background:#B0617F" aria-hidden="true">N</div><h3>Nadia</h3><p>Coupes courtes, cheveux bouclés et frisés.</p></div>
+        <div class="person"><div class="avatar" style="background:#5E3A57" aria-hidden="true">L</div><h3>Léa</h3><p>Coiffures de mariage et chignons.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="infos">
+    <div class="wrap practical">
+      <div class="box">
+        <h3>Horaires</h3>
+        <p>Mardi au vendredi : 9 h – 19 h<br>Samedi : 8 h 30 – 17 h<br>Dimanche et lundi : fermé</p>
+      </div>
+      <div class="box">
+        <h3>Rendez-vous</h3>
+        <p>Par téléphone au <a href="tel:+33300000000">03 00 00 00 00</a> (numéro fictif), ou en ligne avec un bouton vers votre outil de réservation.<br>8 place du Marché, 60000 Beauvais.</p>
+      </div>
+    </div>
+  </section>
+</main>
+<footer><div class="wrap">Atelier Mèche · Salon fictif · Démonstration d'un site Essentiel (une page) à 349 €</div></footer>
+</body>
+</html>
