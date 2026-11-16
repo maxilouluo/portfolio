@@ -355,6 +355,20 @@ footer{background:#2E2118;color:#D9C7B4}
 .mockup-offer span{color:#FBE8DC;font-size:16.5px}
 .mockup-offer .btn.primary{background:#fff;color:#A84E2C;box-shadow:none}
 @media (max-width:720px){.mockup-offer{grid-template-columns:1fr}}
+
+/* Idées du commerçant */
+.ideas{border:1px dashed var(--line);border-radius:12px;padding:14px 16px;background:var(--bg)}
+.ideas summary{cursor:pointer;font-weight:700;font-size:16px}
+.ideas summary span{font-weight:400;color:var(--muted)}
+.ideas[open] summary{margin-bottom:12px}
+.ideas fieldset{border:0;padding:0;margin:0 0 14px;display:grid;gap:8px}
+.ideas legend{font-weight:600;font-size:15px;margin-bottom:8px;padding:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.pill input,.swatch input{position:absolute;opacity:0;width:1px;height:1px}
+.pill span,.swatch span{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 12px;font-size:14.5px;font-weight:600;cursor:pointer;transition:background .15s,border-color .15s}
+.swatch i{width:18px;height:18px;border-radius:50%;border:1px solid rgba(0,0,0,.12);flex:none}
+.pill input:checked+span,.swatch input:checked+span{border-color:var(--accent);background:var(--soft);color:var(--accent)}
+.pill input:focus-visible+span,.swatch input:focus-visible+span{outline:3px solid var(--accent);outline-offset:2px}
 </style>
 </head>
 <body>
@@ -693,6 +707,16 @@ footer{background:#2E2118;color:#D9C7B4}
             <option>Site Complet</option>
           </select>
         </label>
+        <details class="ideas" open>
+          <summary>Vous avez déjà des idées pour votre site ? <span>(facultatif)</span></summary>
+          <fieldset><legend>Les couleurs qui vous plaisent</legend><div class="chips"><label class="swatch"><input type="checkbox" class="ck" data-group="Couleurs" value="Chaleureux (beige, terracotta)"><span><i style="background:linear-gradient(135deg,#E9D3B6 50%,#C8643B 50%)"></i>Chaleureux (beige, terracotta)</span></label><label class="swatch"><input type="checkbox" class="ck" data-group="Couleurs" value="Frais (vert, blanc)"><span><i style="background:linear-gradient(135deg,#DDF3E7 50%,#2F9E6A 50%)"></i>Frais (vert, blanc)</span></label><label class="swatch"><input type="checkbox" class="ck" data-group="Couleurs" value="Élégant (noir, doré)"><span><i style="background:linear-gradient(135deg,#2A2A2A 50%,#C9A24A 50%)"></i>Élégant (noir, doré)</span></label><label class="swatch"><input type="checkbox" class="ck" data-group="Couleurs" value="Doux (rose, crème)"><span><i style="background:linear-gradient(135deg,#F8E1E4 50%,#C76B86 50%)"></i>Doux (rose, crème)</span></label><label class="swatch"><input type="checkbox" class="ck" data-group="Couleurs" value="Classique (bleu, blanc)"><span><i style="background:linear-gradient(135deg,#E3ECF8 50%,#2F5FA8 50%)"></i>Classique (bleu, blanc)</span></label><label class="swatch"><input type="checkbox" class="ck" data-group="Couleurs" value="Vif (jaune, orange)"><span><i style="background:linear-gradient(135deg,#FFE9A8 50%,#F2711C 50%)"></i>Vif (jaune, orange)</span></label></div>
+            <input id="couleurs-libre" name="Couleurs (précisions)" placeholder="Ou décrivez-les : celles de votre logo, de votre devanture…"></fieldset>
+          <fieldset><legend>L'ambiance</legend><div class="chips"><label class="pill"><input type="checkbox" class="ck" data-group="Ambiance" value="Moderne"><span>Moderne</span></label><label class="pill"><input type="checkbox" class="ck" data-group="Ambiance" value="Chaleureuse"><span>Chaleureuse</span></label><label class="pill"><input type="checkbox" class="ck" data-group="Ambiance" value="Élégante"><span>Élégante</span></label><label class="pill"><input type="checkbox" class="ck" data-group="Ambiance" value="Simple et sobre"><span>Simple et sobre</span></label><label class="pill"><input type="checkbox" class="ck" data-group="Ambiance" value="Rétro"><span>Rétro</span></label><label class="pill"><input type="checkbox" class="ck" data-group="Ambiance" value="Nature"><span>Nature</span></label></div></fieldset>
+          <fieldset><legend>Ce que vous voulez sur le site</legend><div class="chips"><label class="pill"><input type="checkbox" class="ck" data-group="Contenu" value="Horaires et accès"><span>Horaires et accès</span></label><label class="pill"><input type="checkbox" class="ck" data-group="Contenu" value="Photos"><span>Photos</span></label><label class="pill"><input type="checkbox" class="ck" data-group="Contenu" value="Carte ou menu"><span>Carte ou menu</span></label><label class="pill"><input type="checkbox" class="ck" data-group="Contenu" value="Liste de prix"><span>Liste de prix</span></label><label class="pill"><input type="checkbox" class="ck" data-group="Contenu" value="Prise de rendez-vous"><span>Prise de rendez-vous</span></label><label class="pill"><input type="checkbox" class="ck" data-group="Contenu" value="Commande en ligne"><span>Commande en ligne</span></label><label class="pill"><input type="checkbox" class="ck" data-group="Contenu" value="Avis clients"><span>Avis clients</span></label><label class="pill"><input type="checkbox" class="ck" data-group="Contenu" value="Lien Instagram / Facebook"><span>Lien Instagram / Facebook</span></label></div></fieldset>
+          <fieldset><legend>Vous avez déjà un logo ?</legend><div class="chips"><label class="pill"><input type="radio" name="Logo" value="Oui"><span>Oui</span></label><label class="pill"><input type="radio" name="Logo" value="Non"><span>Non</span></label><label class="pill"><input type="radio" name="Logo" value="Je voudrais en créer un"><span>Je voudrais en créer un</span></label></div></fieldset>
+          <label for="inspi">Un site que vous aimez bien (lien ou nom)<input id="inspi" name="Site qui inspire" placeholder="Ex. le site d'un commerce que vous trouvez réussi"></label>
+          <input type="hidden" name="Couleurs choisies" id="h-Couleurs"><input type="hidden" name="Ambiance" id="h-Ambiance"><input type="hidden" name="Contenu souhaité" id="h-Contenu">
+        </details>
         <label for="parrain">Qui vous a parlé de moi ? (facultatif)<input id="parrain" name="Parrain" placeholder="Nom de la personne qui vous envoie"></label>
         <label for="msg">Votre message<textarea id="msg" name="Message" placeholder="Parlez-moi de votre activité"></textarea></label>
         <button class="btn primary" type="submit" id="send">Envoyer ma demande</button>
@@ -720,6 +744,12 @@ document.querySelectorAll('[data-offre]').forEach(function(a){
 (function(){
   var f = document.getElementById('f'), out = document.getElementById('out'), btn = document.getElementById('send');
   if (location.hash === '#merci') { out.textContent = 'Merci ! Votre demande est bien envoyée. Je vous réponds sous 24 h.'; out.className = 'form-msg ok'; }
+  f.addEventListener('submit', function(){
+    ['Couleurs','Ambiance','Contenu'].forEach(function(g){
+      var v=[].slice.call(f.querySelectorAll('.ck[data-group="'+g+'"]:checked')).map(function(c){return c.value;});
+      document.getElementById('h-'+g).value=v.join(', ');
+    });
+  }, true);
   f.addEventListener('submit', function(e){
     if (!window.fetch || !window.FormData) return; /* envoi classique */
     e.preventDefault();
