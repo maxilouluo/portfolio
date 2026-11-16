@@ -370,9 +370,21 @@ footer{background:#2E2118;color:#D9C7B4}
 .pill input:checked+span,.swatch input:checked+span{border-color:var(--accent);background:var(--soft);color:var(--accent)}
 .pill input:focus-visible+span,.swatch input:focus-visible+span{outline:3px solid var(--accent);outline-offset:2px}
 .free{display:inline-block;margin-left:6px;background:#E4EEDB;color:#3D6630;border-radius:999px;padding:2px 9px;font-size:12.5px;font-weight:700}
+
+/* Offre des fêtes */
+body:not(.promo) .promo-only{display:none!important}
+body.promo .normal-only{display:none!important}
+.promo-bar{background:#2E2118;color:#F6EADA;text-align:center;font-size:15px;padding:9px 16px}
+.promo-bar b{color:#F2C27A}
+.promo-bar a{color:#fff;font-weight:700;margin-left:6px}
+.hero-promo{display:inline-block;margin-left:10px;background:var(--accent);color:#fff;font-weight:800;font-size:13px;letter-spacing:.04em;padding:4px 10px;border-radius:999px;vertical-align:middle}
+.price s{font-size:.5em;font-weight:600;opacity:.6;margin-right:6px;text-decoration-thickness:2px}
+.promo-tag{display:inline-block;align-self:flex-start;background:#FBE3D6;color:#A84E2C;font-weight:700;font-size:13px;border-radius:999px;padding:4px 10px;margin-top:-6px}
+.plan.star .promo-tag{background:rgba(255,255,255,.2);color:#fff}
 </style>
 </head>
-<body>
+<body class="promo">
+<div class="promo-bar promo-only"><b>Offre des fêtes : −30 % sur la création de votre site</b> pour toute commande avant le 31 décembre. <a href="#tarifs">Voir les prix</a></div>
 
 <header>
   <div class="wrap bar">
@@ -394,6 +406,7 @@ footer{background:#2E2118;color:#D9C7B4}
   <div class="wrap hero">
     <div>
       <span class="tag">Sites web pour commerces et artisans</span>
+      <span class="hero-promo promo-only">−30 % jusqu'au 31 décembre</span>
       <h1>Quand on cherche votre métier près de chez vous, c'est <span class="hl">vous</span> qu'on doit trouver.</h1>
       <p class="lead">Je crée des sites vitrines simples, rapides et sécurisés pour les commerces de proximité, et je soigne votre fiche Google. Vos clients trouvent vos horaires, votre adresse et vos produits en deux secondes, depuis leur téléphone.</p>
       <div class="cta">
@@ -493,7 +506,7 @@ footer{background:#2E2118;color:#D9C7B4}
         <p>Je fais ce travail par passion, et chaque nouveau site me permet d'élargir mes compétences. On entend souvent qu'un site internet coûte des milliers d'euros : pour un commerce de proximité, ce n'est pas forcément le cas. Un site simple, rapide et bien sécurisé suffit, et je préfère le rendre accessible au plus grand nombre.</p>
       </div>
       <div class="mockup-offer">
-        <div><b>Maquette gratuite, sans engagement</b><span>Je crée la page d'accueil de votre site avec votre nom et vos horaires, et je vous la montre sous 48 h. Elle vous plaît, on continue. Sinon, vous ne payez rien.</span></div>
+        <div><b>Maquette gratuite, sans engagement<span class="promo-only"> · et −30 % jusqu'au 31 décembre</span></b><span>Je crée la page d'accueil de votre site avec votre nom et vos horaires, et je vous la montre sous 48 h. Elle vous plaît, on continue. Sinon, vous ne payez rien.</span></div>
         <a class="btn primary" href="#contact">Je veux ma maquette</a>      </div>
 
       <div class="prices">
@@ -518,7 +531,8 @@ footer{background:#2E2118;color:#D9C7B4}
             <h3>Site Essentiel</h3>
             <p class="for">Une page claire qui dit tout l'essentiel de votre commerce.</p>
           </div>
-          <div class="price">349 €</div>
+          <div class="price"><span class="promo-only"><s>349 €</s> 244 €</span><span class="normal-only">349 €</span></div>
+          <span class="promo-tag promo-only">Offre des fêtes · jusqu'au 31/12</span>
           <ul>
             <li>Site d'une page, adapté au téléphone</li>
             <li>Présentation, horaires, plan d'accès, photos</li>
@@ -535,7 +549,8 @@ footer{background:#2E2118;color:#D9C7B4}
             <h3>Site Complet</h3>
             <p class="for">Pour présenter vos produits, votre carte ou vos prestations.</p>
           </div>
-          <div class="price">690 €</div>
+          <div class="price"><span class="promo-only"><s>690 €</s> 483 €</span><span class="normal-only">690 €</span></div>
+          <span class="promo-tag promo-only">Offre des fêtes · jusqu'au 31/12</span>
           <ul>
             <li>Jusqu'à 5 pages</li>
             <li>Carte, catalogue ou liste de prestations</li>
@@ -741,6 +756,7 @@ footer{background:#2E2118;color:#D9C7B4}
 </footer>
 
 <script>
+try { if (Date.now() >= Date.parse("2027-01-01T00:00:00+01:00")) document.body.classList.remove("promo"); } catch(e) {}
 document.querySelectorAll('[data-offre]').forEach(function(a){
   a.addEventListener('click', function(){ document.getElementById('offre').value = a.getAttribute('data-offre'); });
 });
