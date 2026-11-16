@@ -369,6 +369,7 @@ footer{background:#2E2118;color:#D9C7B4}
 .swatch i{width:18px;height:18px;border-radius:50%;border:1px solid rgba(0,0,0,.12);flex:none}
 .pill input:checked+span,.swatch input:checked+span{border-color:var(--accent);background:var(--soft);color:var(--accent)}
 .pill input:focus-visible+span,.swatch input:focus-visible+span{outline:3px solid var(--accent);outline-offset:2px}
+.free{display:inline-block;margin-left:6px;background:#E4EEDB;color:#3D6630;border-radius:999px;padding:2px 9px;font-size:12.5px;font-weight:700}
 </style>
 </head>
 <body>
@@ -523,6 +524,7 @@ footer{background:#2E2118;color:#D9C7B4}
             <li>Présentation, horaires, plan d'accès, photos</li>
             <li>Bouton d'appel et formulaire de contact</li>
             <li>Fiche Google incluse</li>
+            <li>Logo simple offert si vous n'en avez pas</li>
             <li>Mise en ligne en 1 semaine</li>
           </ul>
           <a class="btn primary" href="#contact" data-offre="Site Essentiel">Choisir cette offre</a>
@@ -540,6 +542,7 @@ footer{background:#2E2118;color:#D9C7B4}
             <li>Référencement local (votre ville, votre quartier)</li>
             <li>Lien vers prise de rendez-vous ou commande</li>
             <li>Fiche Google incluse</li>
+            <li>Logo simple offert si vous n'en avez pas</li>
             <li>Mise en ligne en 2 à 3 semaines</li>
           </ul>
           <a class="btn ghost" href="#contact" data-offre="Site Complet">Choisir cette offre</a>
@@ -713,7 +716,7 @@ footer{background:#2E2118;color:#D9C7B4}
             <input id="couleurs-libre" name="Couleurs (précisions)" placeholder="Ou décrivez-les : celles de votre logo, de votre devanture…"></fieldset>
           <fieldset><legend>L'ambiance</legend><div class="chips"><label class="pill"><input type="checkbox" class="ck" data-group="Ambiance" value="Moderne"><span>Moderne</span></label><label class="pill"><input type="checkbox" class="ck" data-group="Ambiance" value="Chaleureuse"><span>Chaleureuse</span></label><label class="pill"><input type="checkbox" class="ck" data-group="Ambiance" value="Élégante"><span>Élégante</span></label><label class="pill"><input type="checkbox" class="ck" data-group="Ambiance" value="Simple et sobre"><span>Simple et sobre</span></label><label class="pill"><input type="checkbox" class="ck" data-group="Ambiance" value="Rétro"><span>Rétro</span></label><label class="pill"><input type="checkbox" class="ck" data-group="Ambiance" value="Nature"><span>Nature</span></label></div></fieldset>
           <fieldset><legend>Ce que vous voulez sur le site</legend><div class="chips"><label class="pill"><input type="checkbox" class="ck" data-group="Contenu" value="Horaires et accès"><span>Horaires et accès</span></label><label class="pill"><input type="checkbox" class="ck" data-group="Contenu" value="Photos"><span>Photos</span></label><label class="pill"><input type="checkbox" class="ck" data-group="Contenu" value="Carte ou menu"><span>Carte ou menu</span></label><label class="pill"><input type="checkbox" class="ck" data-group="Contenu" value="Liste de prix"><span>Liste de prix</span></label><label class="pill"><input type="checkbox" class="ck" data-group="Contenu" value="Prise de rendez-vous"><span>Prise de rendez-vous</span></label><label class="pill"><input type="checkbox" class="ck" data-group="Contenu" value="Commande en ligne"><span>Commande en ligne</span></label><label class="pill"><input type="checkbox" class="ck" data-group="Contenu" value="Avis clients"><span>Avis clients</span></label><label class="pill"><input type="checkbox" class="ck" data-group="Contenu" value="Lien Instagram / Facebook"><span>Lien Instagram / Facebook</span></label></div></fieldset>
-          <fieldset><legend>Vous avez déjà un logo ?</legend><div class="chips"><label class="pill"><input type="radio" name="Logo" value="Oui"><span>Oui</span></label><label class="pill"><input type="radio" name="Logo" value="Non"><span>Non</span></label><label class="pill"><input type="radio" name="Logo" value="Je voudrais en créer un"><span>Je voudrais en créer un</span></label></div></fieldset>
+          <fieldset><legend>Vous avez déjà un logo ? <span class="free">Logo simple offert avec votre site</span></legend><div class="chips"><label class="pill"><input type="radio" name="Logo" value="Oui"><span>Oui</span></label><label class="pill"><input type="radio" name="Logo" value="Non, pas besoin"><span>Non, pas besoin</span></label><label class="pill"><input type="radio" name="Logo" value="Non, je veux le logo offert"><span>Non, je veux le logo offert</span></label></div></fieldset>
           <label for="inspi">Un site que vous aimez bien (lien ou nom)<input id="inspi" name="Site qui inspire" placeholder="Ex. le site d'un commerce que vous trouvez réussi"></label>
           <input type="hidden" name="Couleurs choisies" id="h-Couleurs"><input type="hidden" name="Ambiance" id="h-Ambiance"><input type="hidden" name="Contenu souhaité" id="h-Contenu">
         </details>
