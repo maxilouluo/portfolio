@@ -349,6 +349,12 @@ footer{background:#2E2118;color:#D9C7B4}
 .ref-box div{background:var(--surface);border-radius:12px;padding:14px 16px;display:grid;gap:2px}
 .ref-box span{color:var(--muted);font-size:16px}
 .ref-box b{color:var(--accent);font-family:var(--display);font-size:20px;font-variant-numeric:tabular-nums}
+
+.mockup-offer{display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center;background:linear-gradient(135deg,#C8643B,#D98A4E);color:#fff;border-radius:16px;padding:20px 24px;margin:0 0 32px}
+.mockup-offer b{display:block;font-family:var(--display);font-size:22px;margin-bottom:4px}
+.mockup-offer span{color:#FBE8DC;font-size:16.5px}
+.mockup-offer .btn.primary{background:#fff;color:#A84E2C;box-shadow:none}
+@media (max-width:720px){.mockup-offer{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -363,7 +369,7 @@ footer{background:#2E2118;color:#D9C7B4}
       <a href="#securite">Sécurité</a>
       <a href="#parcours">Parcours</a>
       <a href="#methode">Méthode</a>
-      <a class="nav-cta" href="#contact">Devis gratuit</a>
+      <a class="nav-cta" href="#contact">Maquette gratuite</a>
     </nav>
   </div>
 </header>
@@ -377,7 +383,7 @@ footer{background:#2E2118;color:#D9C7B4}
       <p class="lead">Je crée des sites vitrines simples, rapides et sécurisés pour les commerces de proximité, et je soigne votre fiche Google. Vos clients trouvent vos horaires, votre adresse et vos produits en deux secondes, depuis leur téléphone.</p>
       <div class="cta">
         <a class="btn primary" href="#tarifs">Voir les tarifs</a>
-        <a class="btn ghost" href="#contact">Demander un devis gratuit</a>
+        <a class="btn ghost" href="#contact">Recevoir ma maquette gratuite</a>
       </div>
     </div>
 
@@ -406,7 +412,7 @@ footer{background:#2E2118;color:#D9C7B4}
 
   <div class="trust">
     <div class="wrap">
-      <div><i aria-hidden="true">€</i>Prix fixe, annoncé avant</div>
+      <div><i aria-hidden="true">€</i>Maquette gratuite avant de payer</div>
       <div><i aria-hidden="true">7j</i>En ligne en 1 semaine</div>
       <div><i aria-hidden="true">✓</i>Le site est à votre nom</div>
       <div><i aria-hidden="true">🔒</i>Sécurisé par un pro de la cyber</div>
@@ -469,7 +475,11 @@ footer{background:#2E2118;color:#D9C7B4}
       </div>
       <div class="why-low">
         <h3>Pourquoi mes prix sont si bas ?</h3>
-        <p>Je fais ce travail par passion, et chaque nouveau site me permet d'élargir mes compétences. On entend souvent qu'un site internet coûte des milliers d'euros : pour un commerce de proximité, ce n'est pas forcément le cas. Un site simple, rapide et bien sécurisé suffit, et je préfère le rendre accessible au plus grand nombre.</p>      </div>
+        <p>Je fais ce travail par passion, et chaque nouveau site me permet d'élargir mes compétences. On entend souvent qu'un site internet coûte des milliers d'euros : pour un commerce de proximité, ce n'est pas forcément le cas. Un site simple, rapide et bien sécurisé suffit, et je préfère le rendre accessible au plus grand nombre.</p>
+      </div>
+      <div class="mockup-offer">
+        <div><b>Maquette gratuite, sans engagement</b><span>Je crée la page d'accueil de votre site avec votre nom et vos horaires, et je vous la montre sous 48 h. Elle vous plaît, on continue. Sinon, vous ne payez rien.</span></div>
+        <a class="btn primary" href="#contact">Je veux ma maquette</a>      </div>
 
       <div class="prices">
         <article class="plan">
@@ -539,13 +549,12 @@ footer{background:#2E2118;color:#D9C7B4}
       <div>
         <span class="tag">Parrainage</span>
         <h2>Vous connaissez un commerçant sans site ?</h2>
-        <p>Parlez-lui de moi et donnez-lui l'adresse de cette page. Si cela aboutit à une commande, je vous reverse <strong>10 % du montant</strong> de la création du site, dès que le client a payé.</p>
-        <p class="small">Ouvert à tous, clients ou non. Pensez simplement à me dire qui vous envoie : le commerçant indique votre nom dans sa demande.</p>
+        <p>Parlez-lui de moi et donnez-lui l'adresse de cette page. Tout le monde y gagne :</p>
+        <p class="small">Ouvert à tous, clients ou non. Le commerçant indique simplement votre nom dans sa demande. Les 40 € sont versés par virement dès que le client a payé son site.</p>
       </div>
-      <div class="ref-box" aria-label="Exemples de gains">
-        <div><span>Site Essentiel vendu</span><b>34,90 € pour vous</b></div>
-        <div><span>Site Complet vendu</span><b>69 € pour vous</b></div>
-        <div><span>Fiche Google vendue</span><b>7,90 € pour vous</b></div>
+      <div class="ref-box" aria-label="Ce que chacun gagne">
+        <div><span>Vous, le parrain</span><b>40 € par commerçant qui signe</b></div>
+        <div><span>Le commerçant que vous recommandez</span><b>2 mois d'entretien offerts</b></div>
       </div>
     </div>
   </section>
@@ -626,7 +635,7 @@ footer{background:#2E2118;color:#D9C7B4}
       </div>
       <div class="steps">
         <div class="step"><span class="when">Gratuit · 20 min</span><h3>On échange</h3><p>Par téléphone ou en visio, vous me parlez de votre commerce et de vos clients.</p></div>
-        <div class="step"><span class="when">Sous 48 h</span><h3>Je vous envoie un devis</h3><p>Un prix fixe et un délai, sans surprise.</p></div>
+        <div class="step"><span class="when">Gratuit · sous 48 h</span><h3>Je vous montre votre maquette</h3><p>La page d'accueil de votre site, avec votre nom et vos horaires, et un devis à prix fixe. Vous ne payez que si elle vous plaît.</p></div>
         <div class="step"><span class="when">1 à 3 semaines</span><h3>Je crée le site</h3><p>Vous recevez une première version, et on ajuste ensemble jusqu'à ce qu'elle vous plaise.</p></div>
         <div class="step"><span class="when">Le jour J</span><h3>Mise en ligne</h3><p>Le site est publié, la fiche Google mise à jour, et je vous montre comment tout fonctionne.</p></div>
       </div>
@@ -650,7 +659,7 @@ footer{background:#2E2118;color:#D9C7B4}
       <div>
         <div class="head">
           <h2>Parlons de votre commerce</h2>
-          <p>Premier échange gratuit et sans engagement. Je réponds sous 24 h.</p>
+          <p>Demandez votre maquette gratuite : je vous montre la page d'accueil de votre futur site sous 48 h. Vous ne payez que si elle vous plaît.</p>
         </div>
         <div class="direct">
           <div><small>Email</small><a href="mailto:wimmermax81@gmail.com">wimmermax81@gmail.com</a></div>
@@ -677,6 +686,7 @@ footer{background:#2E2118;color:#D9C7B4}
         </div>
         <label for="offre">Offre qui vous intéresse
           <select id="offre" name="Offre">
+            <option>Je veux d'abord voir ma maquette gratuite</option>
             <option>Je ne sais pas encore</option>
             <option>Visibilité Google</option>
             <option>Site Essentiel</option>
